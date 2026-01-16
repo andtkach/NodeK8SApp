@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodek8sapp-deployment
+  namespace: nodek8sapp
+  labels:
+    app: nodek8sapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodek8sapp
+  template:
+    metadata:
+      labels:
+        app: nodek8sapp
+    spec:
+      containers:
+      - name: nodek8sapp
+        image: registry-server.micropigmentacion.cc/nodek8sapp:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: APP_ENV_SERVICE_INFO
+          value: "kubernetes-production"
+        - name: PORT
+          value: "3000"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5

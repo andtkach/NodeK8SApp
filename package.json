@@ -1,0 +1,18 @@
+{
+  "name": "nodek8sapp",
+  "version": "1.0.0",
+  "description": "Node.js Web API with Customer CRUD operations for Kubernetes deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test.js"
+  },
+  "keywords": ["nodejs", "express", "kubernetes", "api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
+  }
+}

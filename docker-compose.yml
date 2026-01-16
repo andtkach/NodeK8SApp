@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nodek8sapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - APP_ENV_SERVICE_INFO=production-environment
+      - PORT=3000
+    restart: unless-stopped
