@@ -1,7 +1,8 @@
 const http = require('http');
 
 // const BASE_URL = 'http://localhost:3000';
-const BASE_URL = 'http://192.168.4.37:30301';
+// const BASE_URL = 'http://192.168.4.37:30301';
+const BASE_URL = 'http://192.168.2.165:30301';
 let testCustomerId = null;
 
 // Helper function to make HTTP requests
